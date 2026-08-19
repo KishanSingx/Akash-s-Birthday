@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Akash Singh ⚡💜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05020c; --bg2:#100721; --purple:#8c5cff; --violet:#c4a6ff;
+  --text:#f7f2ff; --muted:#aaa0c5; --glass:rgba(255,255,255,.055);
+  --line:rgba(204,178,255,.18); --cyan:#9de8ff; --pink:#e7a7ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh; overflow-x:hidden; color:var(--text); font-family:Poppins,sans-serif;
+  background:
+    radial-gradient(circle at 50% 15%,rgba(105,57,180,.24),transparent 35%),
+    radial-gradient(circle at 10% 80%,rgba(74,30,130,.18),transparent 35%),
+    linear-gradient(135deg,#030208,#090313 45%,#120522);
+}
+body.shake{animation:shake .18s linear}
+@keyframes shake{25%{transform:translateX(-3px)}50%{transform:translateX(3px)}75%{transform:translateX(-2px)}}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#smoke{z-index:0;opacity:.55} #storm{z-index:1} #droplets{z-index:2}
+#flash{z-index:3;background:#fff;opacity:0;mix-blend-mode:screen}
+#confetti{z-index:50}
+#app{position:relative;z-index:5}
+.wrap{width:min(940px,92vw);margin:auto}
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:70px 0 50px;position:relative;
+}
+.pill{
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(140,92,255,.09);backdrop-filter:blur(10px);color:var(--violet);
+  letter-spacing:2px;font-size:11px;text-transform:uppercase;
+}
+h1{
+  margin-top:22px;font-family:Fredoka,sans-serif;font-size:clamp(42px,9vw,82px);
+  line-height:1.02;letter-spacing:-2px;
+  background:linear-gradient(100deg,#e8dcff,#a987ff,#e9b5ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 28px rgba(140,92,255,.28));
+}
+.hero p{max-width:640px;color:#c7bddb;font-size:clamp(15px,2.2vw,19px);line-height:1.8;margin-top:20px}
+.scroll{margin-top:42px;color:#7f7397;font-size:12px;letter-spacing:3px;animation:bob 1.7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px);opacity:.55}}
+section{padding:90px 0}
+.section-head{text-align:center;margin-bottom:28px}
+.section-head small{color:var(--violet);letter-spacing:3px;text-transform:uppercase;font-size:11px}
+.section-head h2{font:600 clamp(29px,5vw,45px) Fredoka;margin-top:8px}
+.section-head p{color:var(--muted);margin-top:8px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  border:1px solid var(--line);border-radius:24px;padding:28px;
+  box-shadow:0 20px 70px rgba(0,0,0,.25);backdrop-filter:blur(16px);
+}
+.message p{color:#ddd5eb;line-height:1.9;margin:10px 0}
+.signature{color:#bfa8ff;margin-top:16px;font-weight:600}
+.fun-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.fun{
+  padding:20px;border-radius:18px;background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);transition:.25s;
+}
+.fun:hover{transform:translateY(-4px);border-color:rgba(196,166,255,.3)}
+.fun b{color:#cbb7ff;font-size:12px;letter-spacing:2px}
+.fun p{margin-top:8px;color:#c9c1d7;line-height:1.65;font-size:14px}
+.photos{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+/* MOBILE PHOTO SLIDES */
+@media (max-width:600px){
+  .photos{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    width:100%;
+  }
+  .photo{
+    width:100%;
+    height:100svh;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    aspect-ratio:auto;
+    scroll-snap-align:start;
+    border-radius:0;
+    border:1px solid rgba(190,120,255,.9);
+    box-shadow:
+  0 0 8px rgba(190,110,255,1),
+  0 0 18px rgba(190,110,255,1),
+  0 0 35px rgba(160,70,255,.9),
+  0 0 60px rgba(140,50,255,.75),
+  0 0 100px rgba(120,30,255,.55);
+  }
+  .photo img{
+    width:92%;
+    height:auto;
+    aspect-ratio:1 / 1;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:
+  0 0 8px rgba(190,110,255,1),
+  0 0 20px rgba(190,110,255,.95),
+  0 0 40px rgba(160,70,255,.85),
+  0 0 70px rgba(130,40,255,.65);
+  }
+}
+.photo{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  border:2px solid rgba(190,110,255,1);
+  background:#100a1b;
+  box-shadow:
+    0 0 8px rgba(190,110,255,1),
+    0 0 18px rgba(190,110,255,.95),
+    0 0 35px rgba(160,70,255,.85),
+    0 0 60px rgba(140,50,255,.7),
+    0 0 100px rgba(120,30,255,.5);
+}
+.photo{
+  position:relative;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid rgba(210,190,255,.2);
+  background:#100a1b;
+  box-shadow:0 12px 35px rgba(0,0,0,.28);
+}
+.photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:.4s;
+  box-shadow:
+    0 0 8px rgba(190,110,255,1),
+    0 0 20px rgba(190,110,255,.95),
+    0 0 40px rgba(160,70,255,.8),
+    0 0 70px rgba(130,40,255,.6);
+}
+.photo:hover img{
+  transform:scale(1.06);
+}
+.photo:hover img{transform:scale(1.06)}
+.photo .edit{
+  position:absolute;bottom:8px;left:8px;right:8px;padding:6px;border-radius:10px;
+  background:rgba(0,0,0,.48);font-size:10px;text-align:center;color:#ddd;
+}
+.gift-wrap{text-align:center}
+.gift-card{
+  position:relative;max-width:650px;margin:auto;padding:42px 25px 30px;
+  border-radius:28px;border:1px solid rgba(196,166,255,.25);
+  background:radial-gradient(circle at 50% 0,rgba(140,92,255,.15),rgba(255,255,255,.035) 45%,rgba(0,0,0,.15));
+  box-shadow:0 0 70px rgba(91,43,180,.16);overflow:hidden;
+}
+.gift-icon{font-size:66px;filter:drop-shadow(0 0 18px rgba(196,166,255,.35));animation:giftFloat 2.5s ease-in-out infinite}
+@keyframes giftFloat{50%{transform:translateY(-8px) rotate(2deg)}}
+.gift-card h2{font:600 34px Fredoka;margin:12px 0 8px}
+.gift-card p{color:#afa5bf;line-height:1.7}
+.btn-zone{height:170px;position:relative;margin-top:18px}
+button{
+  border:0;border-radius:999px;cursor:pointer;font:600 16px Fredoka;padding:14px 25px;
+  color:#160a2b;touch-action:manipulation;
+}
+#claimBtn{
+  position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);
+  background:linear-gradient(135deg,#d9c5ff,#956cff);box-shadow:0 0 24px rgba(140,92,255,.45);
+  transition:left .32s cubic-bezier(.2,.8,.2,1),top .32s cubic-bezier(.2,.8,.2,1),transform .2s;
+  z-index:4;
+}
+#claimBtn:hover{box-shadow:0 0 36px rgba(164,126,255,.72)}
+#returnBtn{
+  position:absolute;right:calc(50% - 185px);top:58%;transform:translateY(-50%);
+  color:#eee8f8;background:rgba(255,255,255,.045);border:1px solid rgba(220,207,240,.2);
+  animation:returnPulse 2.2s ease-in-out infinite;
+}
+@keyframes returnPulse{
+  0%,100%{transform:translateY(-50%) scale(1);box-shadow:0 0 0 rgba(196,166,255,0)}
+  50%{transform:translateY(-50%) scale(1.08);box-shadow:0 0 24px rgba(196,166,255,.28);border-color:rgba(196,166,255,.5)}
+}
+.hint{font-size:12px;color:#756b84;margin-top:4px;min-height:18px}
+#claimed{
+  display:none;margin-top:20px;padding:20px;border-radius:18px;
+  background:rgba(140,92,255,.08);border:1px solid rgba(196,166,255,.22);
+}
+#claimed.show{display:block;animation:appear .7s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:none}}
+.celebrate{font:600 28px Fredoka;color:#d9c7ff}
+footer{text-align:center;color:#70667e;font-size:12px;padding:30px 0 70px}
+/* One-time Return overlay */
+.return-overlay{
+  position:fixed;inset:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(3,1,9,.78);backdrop-filter:blur(14px);
+  opacity:0;transition:opacity .25s ease;
+}
+.return-overlay.show{opacity:1}
+.return-message{
+  width:min(720px,92vw);padding:48px 28px;text-align:center;border-radius:30px;
+  border:1px solid rgba(214,190,255,.32);
+  background:linear-gradient(145deg,rgba(35,17,65,.96),rgba(8,4,18,.97));
+  box-shadow:0 0 90px rgba(125,72,220,.35);
+  font:500 clamp(24px,5vw,48px) Fredoka;
+  animation:returnPop .55s cubic-bezier(.2,.8,.2,1) both;
+}
+.return-message strong{
+  display:block;margin-top:10px;color:#d5bdff;font-size:clamp(30px,6vw,58px);
+  text-shadow:0 0 28px rgba(177,132,255,.5);
+}
+.return-message small{display:block;margin-top:18px;color:#9d92ae;font:400 12px Poppins;letter-spacing:2px}
+.return-big{font-size:64px;margin-bottom:12px;animation:giftGone .8s ease both}
+@keyframes returnPop{from{transform:scale(.86);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes giftGone{0%{transform:scale(1);opacity:1}100%{transform:scale(1.35);opacity:.7}}
+
+@media(max-width:720px){
+  .fun-grid{grid-template-columns:1fr}.photos{grid-template-columns:1fr;gap:16px}
+  .card{padding:21px}.btn-zone{height:190px}
+  #returnBtn{right:calc(50% - 158px);top:58%}
+  #claimBtn{top:58%}
+}
+@media(max-width:430px){.photos{grid-template-columns:1fr}.gift-card h2{font-size:29px}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<canvas id="smoke"></canvas>
+<canvas id="storm"></canvas>
+<canvas id="droplets"></canvas>
+<div id="flash"></div>
+<canvas id="confetti"></canvas>
+
+<div id="app">
+<div class="wrap">
+  <header class="hero">
+    <div class="pill">WEDNESDAY • 19 AUGUST ⚡</div>
+    <h1>Happy Birthday<br>Akash Singh</h1>
+    <p>
+      Bade bhai 😎, balikaran 😁, dosto ke dost 🥰, aur movie ki dunkiya dikhane wale insaan 🥹 —
+      aapka birthday full power, full happiness aur full masti wala ho! 🎂💜
+    </p>
+    <div class="scroll">↓ SCROLL TO ENTER THE BIRTHDAY ZONE ↓</div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>Aapke liye ek chhoti si baat</h2>
+    </div>
+    <div class="card message">
+      <p>Ap, apne Instagram bio mein ye sab kya likhe hain? 😂👇</p>
+      <p>
+        😎 Welcome To My Profile 😜<br>
+        😘 Sanskari Ladka 😉<br>
+        🙏 Respect For All 🙏<br>
+        🔥 Mr. Perfect 🔥<br>
+        😊 Proud 🍓🥭
+      </p>
+      <p>Waise birthday ke din <b>Mr. Perfect</b> ko thoda extra respect milna hi chahiye. 😎</p>
+      <div class="signature">— Aapka chhota bhai 💜</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Akash Singh — Kuch Masti</h2>
+    </div>
+    <div class="fun-grid">
+      <div class="fun"><b>01</b><p>Raat ko neend nahi aati, lekin subah bahut zyada neend aati hai. Kya ye America jaane ka lakshan hai? 😂</p></div>
+      <div class="fun"><b>02</b><p>Me: I have many hidden talents.<br>Bro: Aww, what are they?<br>Me: I don't know, they're all hidden. 😭</p></div>
+      <div class="fun"><b>03</b><p>Computer: Press any button to continue.<br>Me: pressed the Power button. 💀</p></div>
+      <div class="fun"><b>04</b><p>Teacher: If you pass the exam, I'll be impressed.<br>Me: A tiger doesn't eat grass to impress a sheep. 🐯</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Yaadon Ka Album</div>
+    <h1 style="font-size:clamp(30px,6vw,50px);">Akash Singh<br>In Frames</h1>
+    </div>
+    <div class="photos">
+      <figure class="photo"></span><img src="pic 1.jpeg" alt="Akash Bhaiya photo 1"></figure>
+      <figure class="photo"><img src="pic 2.jpeg" alt="Akash Bhaiya photo 2"></figure>
+      <figure class="photo"><img src="pic 3.jpeg" alt="Akash Bhaiya photo 3"></figure>
+      <figure class="photo"><img src="pic 4.jpeg" alt="Akash Bhaiya photo 4"></figure>
+      <figure class="photo"><img src="pic5.jpeg" alt="Akash Bhaiya photo 5"></figure>
+      <figure class="photo"><img src="pic 6.jpeg" alt="Akash Bhaiya photo 6"></figure>
+      <figure class="photo"><img src="pic 7.jpeg" alt="Akash Bhaiya photo 7"></figure>
+      <figure class="photo"><img src="pic 8.jpeg" alt="Akash Bhaiya photo 8"></figure>
+      <figure class="photo"><img src="pic 9.jpeg" alt="Akash Bhaiya photo 9"></figure>
+      <figure class="photo"><img src="pic 10.jpeg" alt="Akash Bhaiya photo 10"></figure>
+    </div>
+  </section>
+
+  <section class="gift-wrap">
+    <div class="section-head">
+      <h2>Akash ji, ek gift claim karege?</h2>
+      <p>Decision aapka… lekin buttons thode interesting hain. 😏</p>
+    </div>
+    <div class="gift-card">
+      <div class="gift-icon">🎁</div>
+      <h2>YOUR BIRTHDAY GIFT</h2>
+      <p>Ek special digital surprise aapke liye wait kar raha hai.</p>
+      <div class="btn-zone" id="btnZone">
+        <button id="claimBtn">🎁 Claim My Gift</button>
+        <button id="returnBtn">↩ Return My Gift</button>
+      </div>
+      <div class="hint" id="hint">Claim ko pakadna mumkin he nahi…namumkin hai. 😎</div>
+    </div>
+  </section>
+
+  <footer>Made with 💜 + ⚡ + thodi si coding pagalpan for Akash Singh</footer>
+</div>
+</div>
+
+<script>
+/* =========================================================
+   1) PURPLE SMOKE / AURORA
+   ========================================================= */
+const smoke=document.getElementById('smoke'), sx=smoke.getContext('2d');
+function rs(){smoke.width=innerWidth;smoke.height=innerHeight}
+addEventListener('resize',rs);rs();
+let smokeT=0;
+function smokeLoop(){
+  smokeT+=0.003; sx.clearRect(0,0,smoke.width,smoke.height);
+  const blobs=[
+    [smoke.width*.18+Math.sin(smokeT)*55,smoke.height*.25,230],
+    [smoke.width*.78+Math.cos(smokeT*.8)*65,smoke.height*.35,260],
+    [smoke.width*.48+Math.sin(smokeT*.55)*80,smoke.height*.82,300]
+  ];
+  blobs.forEach(([x,y,r])=>{
+    const g=sx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,'rgba(112,60,210,.18)');g.addColorStop(1,'rgba(20,5,45,0)');
+    sx.fillStyle=g;sx.beginPath();sx.arc(x,y,r,0,Math.PI*2);sx.fill();
+  });
+  requestAnimationFrame(smokeLoop);
+}
+smokeLoop();
+
+/* =========================================================
+   2) RANDOM NERVE-LIKE LIGHTNING
+   ========================================================= */
+const storm=document.getElementById('storm'), st=storm.getContext('2d'), flash=document.getElementById('flash');
+function rt(){storm.width=innerWidth;storm.height=innerHeight}
+addEventListener('resize',rt);rt();
+function bolt(){
+  st.clearRect(0,0,storm.width,storm.height);
+  let x=50+Math.random()*(storm.width-100), y=-20, pts=[[x,y]];
+  const n=8+Math.floor(Math.random()*6);
+  for(let i=0;i<n;i++){y+=storm.height/n;x+=(Math.random()-.5)*120;pts.push([x,y])}
+  st.save();st.shadowColor='#c9b7ff';st.shadowBlur=24;st.strokeStyle='rgba(232,224,255,.95)';
+  st.lineWidth=2.6;st.beginPath();st.moveTo(...pts[0]);pts.slice(1).forEach(p=>st.lineTo(...p));st.stroke();
+  st.shadowBlur=5;st.strokeStyle='#fff';st.lineWidth=1;st.stroke();st.restore();
+  if(Math.random()<.75){
+    const p=pts[2+Math.floor(Math.random()*(pts.length-3))];let bx=p[0],by=p[1];
+    st.save();st.strokeStyle='rgba(195,174,255,.8)';st.shadowColor='#bda4ff';st.shadowBlur=13;
+    st.beginPath();st.moveTo(bx,by);
+    for(let i=0;i<4;i++){bx+=(Math.random()-.5)*70;by+=storm.height/(n*2);st.lineTo(bx,by)}
+    st.stroke();st.restore();
+  }
+  const strength=.28+Math.random()*.35;flash.style.opacity=strength;
+  document.body.classList.add('shake');
+  setTimeout(()=>{flash.style.opacity=0;st.clearRect(0,0,storm.width,storm.height)},90);
+  setTimeout(()=>document.body.classList.remove('shake'),210);
+}
+function scheduleBolt(){setTimeout(()=>{bolt();scheduleBolt()},3500+Math.random()*6500)}
+scheduleBolt();setTimeout(bolt,1400);
+
+/* =========================================================
+   3) FLOATING GLASS / WATER DROPLETS
+   ========================================================= */
+const dc=document.getElementById('droplets'), dx=dc.getContext('2d');
+function rd(){dc.width=innerWidth;dc.height=innerHeight}
+addEventListener('resize',rd);rd();
+const drops=Array.from({length:34},()=>({
+  x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+  r:2+Math.random()*7,v:.15+Math.random()*.45,phase:Math.random()*6.28
+}));
+function dropletLoop(t){
+  dx.clearRect(0,0,dc.width,dc.height);
+  drops.forEach(d=>{
+    d.y-=d.v;
+    if(d.y<-20){d.y=dc.height+20;d.x=Math.random()*dc.width}
+    const r=d.r*(.9+.12*Math.sin(t*.001+d.phase));
+    const g=dx.createRadialGradient(d.x-r*.35,d.y-r*.4,0,d.x,d.y,r*1.7);
+    g.addColorStop(0,'rgba(255,255,255,.5)');g.addColorStop(.22,'rgba(210,220,255,.22)');g.addColorStop(1,'rgba(150,130,255,0)');
+    dx.fillStyle=g;dx.beginPath();dx.arc(d.x,d.y,r*1.7,0,Math.PI*2);dx.fill();
+    dx.strokeStyle='rgba(230,225,255,.16)';dx.lineWidth=.7;dx.stroke();
+  });
+  requestAnimationFrame(dropletLoop);
+}
+requestAnimationFrame(dropletLoop);
+
+/* =========================================================
+   4) GIFT: CLAIM FLOATS SAFELY INSIDE ITS ZONE
+      RETURN SLOWLY GLOWS/PULSES
+   ========================================================= */
+const zone=document.getElementById('btnZone'), claim=document.getElementById('claimBtn');
+const ret=document.getElementById('returnBtn'), hint=document.getElementById('hint');
+let dodges=0;
+const hints=[
+  'Arre pakdo! 😎',
+  'Claim button thoda energetic hai ⚡',
+  'Bhaiya, thoda aur try karo 😂',
+  'Almost! Gift aapka hi hai 🎁',
+  'Ab toh claim kar hi lo 😏'
+];
+function moveClaim(){
+  const pad=8;
+  const maxX=Math.max(pad,zone.clientWidth-claim.offsetWidth-pad);
+  const maxY=Math.max(pad,zone.clientHeight-claim.offsetHeight-pad);
+  const x=pad+Math.random()*Math.max(1,maxX-pad);
+  const y=pad+Math.random()*Math.max(1,maxY-pad);
+  claim.style.left=x+'px';claim.style.top=y+'px';claim.style.transform='translate(0,0)';
+  dodges++;hint.textContent=hints[Math.min(dodges,hints.length-1)];
+}
+['mouseenter','pointerdown','touchstart'].forEach(ev=>{
+  claim.addEventListener(ev,e=>{
+    if(ev!=='pointerdown' || e.pointerType!=='mouse') moveClaim();
+  },{passive:false});
+});
+claim.addEventListener('click',(e)=>{
+  // Infinite loop: the gift is NEVER actually claimed.
+  e.preventDefault();
+  moveClaim();
+  hint.textContent='Haha! Gift abhi bhi nahi mila 😎 — phir se try karo!';
+});
+let giftReturned=false;
+ret.addEventListener('click',()=>{
+  if(giftReturned) return;
+  giftReturned=true;
+
+  // Gift disappears from the card.
+  claim.style.display='none';
+  ret.style.display='none';
+  hint.style.display='none';
+  const giftIcon=document.querySelector('.gift-icon');
+  if(giftIcon) giftIcon.style.display='none';
+
+  const overlay=document.createElement('div');
+  overlay.className='return-overlay';
+  overlay.innerHTML=`
+    <div class="return-message">
+      <div class="return-big">🎁</div>
+      <div>Agar nahi lena hai toh theek hai…</div>
+      <strong>MAI HI RAKH LETA HOON 😌</strong>
+      <small>Gift successfully returned.</small>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(()=>overlay.classList.add('show'));
+});
+addEventListener('resize',()=>{
+  if(claim.disabled)return;
+  claim.style.left='50%';claim.style.top='58%';claim.style.transform='translate(-50%,-50%)';
+});
+
+/* =========================================================
+   5) CELEBRATION
+   ========================================================= */
+const cc=document.getElementById('confetti'), cx=cc.getContext('2d');
+function rc(){cc.width=innerWidth;cc.height=innerHeight}
+addEventListener('resize',rc);rc();
+let parts=[];
+function celebrate(){
+  const icons=['🎉','🎂','🎁','✨','⚡','💜','🎈'];
+  for(let i=0;i<110;i++)parts.push({
+    x:innerWidth/2,y:innerHeight*.55,vx:(Math.random()-.5)*14,vy:-4-Math.random()*14,
+    g:.3+Math.random()*.15,life:100+Math.random()*80,size:14+Math.random()*17,
+    icon:icons[Math.floor(Math.random()*icons.length)],rot:Math.random()*6.28,vr:(Math.random()-.5)*.2
+  });
+}
+function confettiLoop(){
+  cx.clearRect(0,0,cc.width,cc.height);
+  parts.forEach(p=>{
+    p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life--;
+    cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.globalAlpha=Math.max(0,p.life/130);
+    cx.font=p.size+'px sans-serif';cx.textAlign='center';cx.fillText(p.icon,0,0);cx.restore();
+  });
+  parts=parts.filter(p=>p.life>0&&p.y<innerHeight+60);requestAnimationFrame(confettiLoop);
+}
+confettiLoop();
+</script>
+</body>
+</html>
